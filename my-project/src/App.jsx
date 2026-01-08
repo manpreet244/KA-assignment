@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { BrowserRouter ,Route, Router } from 'react-router-dom'
+import { BrowserRouter ,Route, Routes } from 'react-router-dom'
 import './App.css'
 import Event from './components/Event'
 
@@ -10,9 +10,9 @@ function App() {
     <>
      <h1> Ticket booking</h1>
     <BrowserRouter>
-       <Router>
+       <Routes>
       <Route path="/events/:eventId" component={Event} />
-     </Router>
+     </Routes>
     </BrowserRouter>
     </>
   )
