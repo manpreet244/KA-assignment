@@ -30,25 +30,22 @@ const createEvent = async (req , res) =>{
 }
 //book ticket or event api
 const bookEvent = async (req , res) =>{
-    const {eventsId} = req.params;
-    try{
-        const event = await EventSchema.findById(eventsId);
-        if(!event){
-            return res.status(404).json({message : "Event not found"});
-        }
-        //logic to reduce available seats
-        if(event.availableSeats > 0){
-            event.availableSeats -= 1;
-            await event.save();
-            return res.status(200).json({message : "Ticket booked successfully"});
-        }
-        else{
-            return res.status(400).json({message : "No seats available"});
-        }
-
-    }
-    catch(err){
-        res.status(500).json({message : "Server Error"})
+    const { eventId } = req.params;
+    try {
+      const event = await EventSchema.findById(eventId);
+      if (!event) {
+        return res.status(404).json({ message: "Event not found" });
+      }
+      //logic to reduce available seats
+      if (event.availableSeats > 0) {
+        event.availableSeats -= 1;
+        await event.save();
+        return res.status(200).json({ message: "Ticket booked successfully" });
+      } else {
+        return res.status(400).json({ message: "No seats available" });
+      }
+    } catch (err) {
+      res.status(500).json({ message: "Server Error" });
     }
 
 }
