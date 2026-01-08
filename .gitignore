@@ -1,0 +1,4 @@
+/server/node_modules
+/my-projects/node_modules
+/server/.env
+/my-project/.env
