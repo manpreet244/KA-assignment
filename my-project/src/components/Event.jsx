@@ -34,21 +34,19 @@ export default function Event() {
     }, {})
   );
  //backend api integration when user clicks book event call to create event api
- useEffect(()=> {
-
-    const fetchEvents = async ()=>{
-        try{
-            const response = await fetch("http://localhost:5000/api/v1/events");
-            const data = await response.json();
-            setEvents(data)
-            console.log(data);
-        }
-        catch(err){
-            console.log(err);
-        }
-    }
-    fetchEvents();
- })
+ useEffect(() => {
+   const fetchEvents = async () => {
+     try {
+       const response = await fetch("http://localhost:4000/api/v1/events");
+       const data = await response.json();
+       setEvents(data);
+       console.log(data);
+     } catch (err) {
+       console.log(err);
+     }
+   };
+   fetchEvents();
+ }, []);
 
   const bookTicket = (eventId) => {
     setSeats((prev) => ({

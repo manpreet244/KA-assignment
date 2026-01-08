@@ -16,6 +16,11 @@ const EventSchema = new mongoose.Schema({
     description :{
         type:String ,
         required:false
+    },
+    avvailableSeats :{
+        type:Number ,
+        required:true,
+        default:100
     }
 })
 
