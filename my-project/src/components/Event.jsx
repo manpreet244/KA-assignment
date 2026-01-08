@@ -2,6 +2,7 @@ import { useState ,useEffect} from "react";
 import { useParams } from "react-router-dom";
 
 export default function Event() {
+    
      const { eventId } = useParams();
   const [events, setEvents] = useState();
 
